@@ -76,6 +76,31 @@ export const clienteApi = {
   eliminarMetodoPago: (id) =>
     client.delete(`/api/clientes/me/metodos-pago/${id}`).then((r) => r.data),
   notificaciones: () => client.get('/api/clientes/me/notifications').then((r) => r.data),
+
+  // ---- AREA 1: Adquisiciones, entrega y pagos ----
+  adquisiciones: (estado) =>
+    client.get('/api/clientes/me/adquisiciones', { params: estado ? { estado } : {} }).then((r) => r.data),
+  adquisicionResumen: () => client.get('/api/clientes/me/adquisiciones/resumen').then((r) => r.data),
+  adquisicionById: (id) => client.get(`/api/clientes/me/adquisiciones/${id}`).then((r) => r.data),
+  facturaAdquisicion: (id) => client.get(`/api/clientes/me/adquisiciones/${id}/factura`).then((r) => r.data),
+  pagarAdquisicion: (id, medioPagoId) =>
+    client.post(`/api/clientes/me/adquisiciones/${id}/payment`, { medioPagoId }).then((r) => r.data),
+  entregaEnvio: (id, data) =>
+    client.post(`/api/clientes/me/adquisiciones/${id}/entrega/envio`, data).then((r) => r.data),
+  entregaRetiro: (id, data) =>
+    client.post(`/api/clientes/me/adquisiciones/${id}/entrega/retiro`, data).then((r) => r.data),
+  confirmarRecepcion: (id) =>
+    client.post(`/api/clientes/me/adquisiciones/${id}/confirmar`).then((r) => r.data),
+  entregaByAdquisicion: (id) =>
+    client.get(`/api/clientes/me/adquisiciones/${id}/entrega`).then((r) => r.data),
+  retiroByAdquisicion: (id) =>
+    client.get(`/api/clientes/me/adquisiciones/${id}/entrega/retiro`).then((r) => r.data),
+  envioByAdquisicion: (id) =>
+    client.get(`/api/clientes/me/adquisiciones/${id}/entrega/envio`).then((r) => r.data),
+  multas: () => client.get('/api/clientes/me/fines').then((r) => r.data),
+  multaById: (id) => client.get(`/api/clientes/me/fines/${id}`).then((r) => r.data),
+  pagarMulta: (id, medioPagoId) =>
+    client.post(`/api/clientes/me/fines/${id}/payment`, { medioPagoId }).then((r) => r.data),
 };
 
 // ---- ADMIN (segun contrato del PDF) ----

@@ -65,14 +65,26 @@ export default function PerfilScreen({ navigation }) {
 
       <TouchableOpacity
         activeOpacity={0.86}
-        onPress={() => navigation.navigate('PaymentMethods')}
+        onPress={() => navigation.navigate('MisCompras')}
         style={styles.paymentShortcut}
       >
         <View style={{ flex: 1 }}>
-          <Text style={styles.paymentShortcutTitle}>Administrar medios</Text>
-          <Text style={styles.paymentShortcutText}>Ver tus medios cargados o agregar uno nuevo.</Text>
+          <Text style={styles.paymentShortcutTitle}>Historial de adquisiciones</Text>
+          <Text style={styles.paymentShortcutText}>Ver compras, facturas, entrega y pagos pendientes.</Text>
         </View>
         <Text style={styles.paymentShortcutArrow}>+</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        activeOpacity={0.86}
+        onPress={() => navigation.navigate('MisMultas')}
+        style={[styles.paymentShortcut, { marginTop: spacing.sm }]}
+      >
+        <View style={{ flex: 1 }}>
+          <Text style={styles.paymentShortcutTitle}>Mis multas</Text>
+          <Text style={styles.paymentShortcutText}>Revisar y pagar multas pendientes.</Text>
+        </View>
+        <Text style={styles.paymentShortcutArrow}>!</Text>
       </TouchableOpacity>
 
       <Text style={[styles.sectionTitle, { marginTop: spacing.lg }]}>Mis pujas ({pujas.length})</Text>

@@ -27,6 +27,13 @@ import SubastaDetailScreen from './src/screens/SubastaDetailScreen';
 import ItemDetailScreen from './src/screens/ItemDetailScreen';
 import PerfilScreen from './src/screens/PerfilScreen';
 import OfrecerBienScreen from './src/screens/OfrecerBienScreen';
+import MisComprasScreen from './src/screens/MisComprasScreen';
+import AdquisicionDetailScreen from './src/screens/AdquisicionDetailScreen';
+import SeleccionEntregaScreen from './src/screens/SeleccionEntregaScreen';
+import EstadoEntregaScreen from './src/screens/EstadoEntregaScreen';
+import PagoScreen from './src/screens/PagoScreen';
+import FacturaScreen from './src/screens/FacturaScreen';
+import MisMultasScreen from './src/screens/MisMultasScreen';
 import { colors } from './src/theme';
 import BidsterScreen from './src/screens/BidsterScreen';
 import PujasScreen from './src/screens/PujasScreen';
@@ -246,6 +253,13 @@ function RootNavigator() {
                 headerLeft: () => <HeaderBackButton navigation={navigation} route={route} />,
               })}
             />
+            <Stack.Screen name="MisCompras" component={MisComprasScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="AdquisicionDetail" component={AdquisicionDetailScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="SeleccionEntrega" component={SeleccionEntregaScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="EstadoEntrega" component={EstadoEntregaScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="Pago" component={PagoScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="Factura" component={FacturaScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="MisMultas" component={MisMultasScreen} options={{ headerShown: false }} />
           </>
         )}
       </Stack.Navigator>

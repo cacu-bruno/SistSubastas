@@ -5,6 +5,7 @@ import java.time.LocalDate;
 
 public record MultaDto(
         Integer id,
+        Integer adquisicionId,
         BigDecimal importe,
         String estado,
         LocalDate fechaLimite
